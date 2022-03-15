@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  licensingservice:
+    image: licensing-service:0.0.1-SNAPSHOT
+    ports:
+      - "8888:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    networks:
+      backend-microservices:
+        aliases:
+          - "licenseservice"
+networks:
+  backend-microservices:
+      driver: bridge
